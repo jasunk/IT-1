@@ -60,7 +60,7 @@ document.addEventListener("keyup",function(){
 
 setInterval(grow, 100)
 function grow(){
-    console.log(alive, ref, left, speed, scale)
+    
     
         for (let i = 0; i < scale.length; i++) {
             if (alive[i]==true){
@@ -74,12 +74,19 @@ function kill(i){
     
     alive[i]=false
     
-    alive.splice[i,1]
-    ref.splice[i,1]
-    scale.splice[i,1]
-    speed.splice[i,1]
-    scale.splice[i,1]
-    
+    /* delete alive[i];
+    delete left[i];
+    delete ref[i];
+    delete speed[i];
+    delete scale[i]; */
+
+    alive.splice(i, 1); 
+    left.splice(i, 1); 
+    ref.splice(i, 1); 
+    speed.splice(i, 1); 
+    scale.splice(i, 1); 
+
+    console.log("alive:",alive,"ref", ref,"left", left,"speed", speed,"scale", scale)
 
 }
 
@@ -110,7 +117,7 @@ function spawn(){
     speed.push(newSpeed[0])
     scale.push(newScale[0])
 
-    console.log(alive, ref, left, speed, scale)
+    console.log("alive:",alive,"ref", ref,"left", left,"speed", speed,"scale", scale)
 
     newRef.shift();
      
