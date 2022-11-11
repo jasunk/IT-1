@@ -53,12 +53,13 @@ body{
     transform: scale(0.15,0.15);
     transition-duration: 0.1s;
     
+    
 }
 .ground{
     width: 100%;
     height: 50vh;
     z-index: -1;
-    background-color: gray;
+    background:linear-gradient(rgb(65, 65, 65),gray);
     position: absolute;
     bottom: 0;
 }
@@ -99,4 +100,10 @@ body{
     position: absolute;
     top: 2%;
     color: white;
+}
+
+.disabled{
+    display: none !important;
+    animation: none !important;
+    transform: scale(1,1) !important;
 }
