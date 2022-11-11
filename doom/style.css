@@ -8,8 +8,8 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
-    background:url("eirik.png") lightskyblue;
+    overflow: hidden;
+    background:linear-gradient(black,red,red);
     background-size: 33%;
 }
 
@@ -48,7 +48,7 @@ body{
     width: 256px;
     position: absolute;
     
-    
+
     animation: enemyWalk 0.5s step-end infinite;
     transform: scale(0.15,0.15);
     transition-duration: 0.1s;
@@ -63,7 +63,7 @@ body{
     bottom: 0;
 }
 
-.die{animation: enemyDie 0.3s step-end !important; }
+.die{animation: enemyDie 0.3s step-end !important;}
 .dead{animation: none !important; background: url("enemy.png") -1024px -256px;}
 
 @keyframes enemyWalk{
@@ -91,5 +91,12 @@ body{
     background-size: 100%;
     margin-left: -900px;
     z-index: 1;
+    display: none;
 
+}
+
+#score{
+    position: absolute;
+    top: 2%;
+    color: white;
 }

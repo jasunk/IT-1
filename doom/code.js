@@ -1,39 +1,51 @@
-let alive = true
+/* Definerer gameobjects */
+let alive = [true,true,false, true]
+let left = [0,500,-900, -600]
+let ref = [".enemy1", ".enemy2", ".house", ".enemy3"]
+let scale = [0.2,0.2,1, 0.1]
+let speed = [0.01, 0.01, 0, 0.01]
+let score = 0
 
+let newAlive = [true,true,true]
+let newLeft = [200, 1000, -400]
+let newRef = [".enemy4",".enemy5",".enemy6"]
+let newScale = [0.2,0.1,0.3]
+let newSpeed = [0.01,0.015,0.075]
 
-let left = [0,500,-900]
+let mouseAccel=1
+const vw = (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0))/2
 
-let ref = [".enemy1", ".enemy2", ".house"]
-let scale = [0.2,0.2,0.2]
-let speed = [0.01, 0.01, 0]
-
-
-for (let i = 0; i < ref.length; i++) {
-    document.querySelector(ref[i]).style.marginLeft = left[i].toString()
-}
+/* Oppdaterer posisjon */
+for (let i = 0; i < ref.length; i++) {document.querySelector(ref[i]).style.marginLeft = left[i].toString()}
    
 document.addEventListener('keydown', function(event) {
+
     if(event.keyCode == 32) {
         shoot(); 
-        /* Oppdater */
-        if (leftPos1<100 && leftPos1>-100){document.querySelector(".enemy1").classList.add("die"); setTimeout(despawn,500)}
-        if (leftPos2<100 && leftPos2>-100){document.querySelector(".enemy2").classList.add("die"); setTimeout(despawn,500)}
-        
+        for (let i = 0; i < ref.length; i++) {
+            if (left[i]<100 && left[i]>-100){
+                score++
+                document.querySelector("#score").innerHTML = score
+                document.querySelector(ref[i]).classList.add("die"); kill(i);
+            } 
+        }
+
     }else if (event.keyCode == 37){
         console.log("left")
-
+        mouseAccel+=7.5
         for (let i = 0; i < ref.length; i++) {
-            left[i]+= 35
+            left[i]+= 35+mouseAccel
+            
         }
         
     }
     else if(event.keyCode == 39) {
         console.log("right")
+        mouseAccel+=7.5
         for (let i = 0; i < ref.length; i++) {
-            left[i]-= 35
+            left[i]-= 35+mouseAccel
         }
     }
-    console.log(left)
     
     for (let i = 0; i < ref.length; i++) {
         document.querySelector(ref[i]).style.marginLeft = left[i].toString()+"px"
@@ -41,46 +53,65 @@ document.addEventListener('keydown', function(event) {
     
 });
 
-/* Oppdater */
-setInterval(grow, 100)
-let scale1 = 0.2
-let scale2 = 0.2
+document.addEventListener("keyup",function(){
+    mouseAccel=1
+})
 
+
+setInterval(grow, 100)
 function grow(){
+    console.log(alive, ref, left, speed, scale)
     
-    
-    /* if (alive){ */
-    /* Oppdater */
-        scale1+=0.01
-        scale2+=0.01
-        
-        /* document.getElementById("enemy").style.transform = "scale(",toString(scale),",",toString(scale),")" */
-        document.querySelector(".enemy1").style.transform = "scale("+scale1.toString()+ ","+scale1.toString()+")"
-        document.querySelector(".enemy2").style.transform = "scale("+scale2.toString()+ ","+scale2.toString()+")"
-    /* } */
-    
+        for (let i = 0; i < scale.length; i++) {
+            if (alive[i]==true){
+                scale[i]+= speed[i]
+                document.querySelector(ref[i]).style.transform = "scale("+scale[i].toString()+ ","+scale[i].toString()+")"
+            }        
+        }
 }
 
-function despawn(){
+function kill(i){
     
+    alive[i]=false
     
-   /*  if (document.querySelector(".enemy1").classList="die"){
-        document.querySelector(".enemy1").classList.add("dead")
-    }
-    if (document.querySelector(".enemy2").classList="die"){
-        document.querySelector(".enemy2").classList.add("dead")
-    } */
+    alive.splice[i,1]
+    ref.splice[i,1]
+    scale.splice[i,1]
+    speed.splice[i,1]
+    scale.splice[i,1]
     
-    
-    alive=false
+
 }
 
 function shoot(){
-    
+    spawn()
     document.getElementById("gun").classList.add("shoot")
     setTimeout(gunreset, 500)
 }
 
 function gunreset(){
     document.getElementById("gun").classList.remove("shoot")
+}
+
+function spawn(){
+    const node = document.getElementById("enemyInactive");
+    const clone = node.cloneNode(true);
+    document.body.appendChild(clone);
+    
+    clone.classList.add("enemy")
+    clone.classList.add(newRef[0])
+    clone.style.marginLeft = newLeft[0].toString +"px"
+    console.log(ref)
+    let mengde = ref.length+1
+    
+    alive.push(newAlive[0])
+    ref.push(newRef[0])
+    left.push(newLeft[0])
+    speed.push(newSpeed[0])
+    scale.push(newScale[0])
+
+    console.log(alive, ref, left, speed, scale)
+
+    newRef.shift();
+     
 }
