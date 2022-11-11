@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Ubuntu:wght@300&display=swap');
+html, body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgb(231, 150, 150), beige);
+    color: beige;
+    text-align: center;
+    list-style: none;
+    font-family: 'Caveat', cursive;
+font-family: 'Ubuntu', sans-serif;
+    
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+
+h1{
+    font-size: 4vw;
+}
+
+h3{
+    font-size: 2vw;
+}
+
+li{
+    font-size: 1.3vw;
+}
+
+#hoved {
+    margin: 10px;
+    width: 98.7vw; 
+    height: 100vh; 
+
+    gap:20px;
+    
+    display: grid;
+    
+    grid-template-columns:  repeat(4, 1fr) 2fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "a c d e e"
+                         "a f f h i"
+                         "b f f g i"
+                         "j j j j j "
+                                          
+}
+
+#hoved > div {
+    
+    /* Pynt / utseende */
+    border-radius: 25px;
+    text-align: center;
+    background-color: rgb(36, 32, 32);
+    border: 1px solid black;
+
+    /* Flexboks */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+/* Deler opp grid */
+.en {grid-area:a;}
+.to {grid-area:b;}
+.tre {grid-area:c;}
+.fire {grid-area:d;}
+.fem {grid-area:e;}
+.seks {grid-area:f;}
+.syv {grid-area:g;}
+.åtte {grid-area:h;}
+.ni {grid-area:i;}
+.footer{grid-area:j;}
+  
+
+img{
+    width: 100%;
+    border-radius: 25px;   
+    transform: scale(1,1);
+    transition-duration: 0.3s;
+    box-shadow: none;
+}
+
+img:hover{
+    transform: scale(1.13,1.13);
+    box-shadow: 0px 0px 7px 1px black;
+    z-index: 1000;
+}
+
+
+
+.ni img{
+    height: 100%;
+
+}
+
+.fire iframe
+{
+    transform: scale(1.05, 1.05);
+    border-radius: 30px;
+    height: 100%;
+}
+
+.seks{
+    
+    display: grid !important;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-template-areas: "k k k"
+                         "m m n"
+                         "m m o"
+                         "p p l"
+
+}
+
+.seks img{
+    max-width: 66%;
+    transform: scale(1.1,1.1);
+}
+
+
+
+.tittel{grid-area:k;}
+.b1{grid-area:l;}
+.b2{grid-area:m;}
+.b3{grid-area:n;}
+.b4{grid-area:o;}
+.b5{grid-area:p;}
+
+.seks img:hover{transform: scale(1.09,1.09); box-shadow: none;}
+
+.footer p{
+    position: absolute;
+    left: 30px;
+}
+
+
+@media (max-width: 420px) {
+    body{
+        margin:3%;
+        padding:0 ;
+        border:0 ;
+    }
+    #hoved{
+        max-width:90vw;
+        grid-template-columns:  repeat(3, 1fr) ;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas: 
+"c e e"
+"i a f"
+"b a g"
+"h h h"
+"d d d"            
+"j j j"
+       ;
+                            
+                            
+    }
+
+    .ni{
+        width:100px;
+    }
+    div{
+        background:none !important;
+        border:none !important;
+    }
+    .fem, .en, .seks, .footer{
+         background-color: rgb(36, 32, 32) !important;
+    }
+    li{
+        padding-top:10px;
+        transform:scale(2,2);
+    }
+    h3{
+        transform:scale(1.9,1.9);
+    }
+  }
+

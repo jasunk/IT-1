@@ -1,0 +1,19 @@
+body{
+    background-image:url("mjau.jpeg");
+    background-color:rgb(119, 142, 187);
+    background-size: 100%;
+    background-blend-mode:soft-light;
+    text-align: center;
+    background-repeat: no-repeat;
+}
+
+h1{
+    text-align: center;
+    margin-top: 25%;
+    color: white;
+    font-size: 5vw;
+}
+
+h2{
+    margin-top: 30%;
+}

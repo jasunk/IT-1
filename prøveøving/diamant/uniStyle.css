@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Patrick+Hand&family=Ubuntu:wght@300&display=swap');
+
+:root{
+    
+    --d-home-bg: rgb(70, 63, 63);
+    --d-home-theme:rgb(0, 0, 0);
+    --d-home-txt:rgb(255, 255, 255);
+}
+
+
+
+
+
+body{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Caveat', cursive;
+    font-family: 'Patrick Hand', cursive;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1vw;
+    transition-duration: 0.3s;
+
+}
+
+#home{
+    --home-bg: rgb(177, 95, 95);
+    --home-theme:rgb(212, 161, 161);
+    --home-txt:black;
+
+
+    background-color:var(--home-bg);
+    color: var(--home-txt);
+}
+
+.ark{
+    margin-top: -25px;
+    margin-left: 25%;
+    width: 50%;
+    height: 800vh;
+    background-color: var(--home-theme);
+    box-shadow: 0 0 red 10px 10px;
+}
+
+#settings{
+    background-color: white;
+    color: black;
+}
+
+
+.fontButton{
+    transform: rotate(-90deg);
+    padding: 10px 20px;
+    
+}
+
+
+.buttonArea{
+    position: absolute;
+    top:25%;
+    width: 100%;
+
+    
+    
+}
+
+
+#henrik{
+    width: 20vw;
+    height: 100vh;
+    border-radius: 100px;
+}
+
+.picGrid{
+    padding-left: 10%;
+    width: 80%;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(2,1fr);
+}
+
+.picGrid > img{
+    width: 20vw;
+    height: 20vw;
+}
+
+
+
+p{
+    max-width: 60%;
+    margin-left: 20%;
+}
+
+.dikt{
+    max-width: 70%;
+    margin-left: 15%;
+    font-size: 1.15vw;
+    letter-spacing: 4px;
+    
+    
+}
+
+#clock{
+    position: sticky  ;
+    top: 90%;
+    text-align: right;
+    padding-right: 4%;
+}
+

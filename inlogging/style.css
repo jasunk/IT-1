@@ -1,0 +1,44 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+body > div{
+    text-align: center;
+    height: 100%;
+}
+
+.sidebar{
+    background: linear-gradient(rgb(209, 209, 255), white) ;
+    
+
+}
+
+
+
+.user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+    
+}
+
+
+.user img{
+    content: url();
+    width: 15vw;
+}
+
+.user p{
+    max-width: 30vw;
+}

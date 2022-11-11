@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+:root{
+    -color:#fff;
+    
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Caveat', cursive;
+}
+
+body{
+    background-color: rgb(231, 168, 168);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+    
+
+}
+
+#boks{
+    
+    text-align: center;
+    border: rgb(231, 168, 168) 5px solid;
+
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+
+    
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px 5px  rgb(231, 168, 168);
+    transform: scale(1,1);
+    transition-duration: .35s;
+    
+ 
+}
+
+#boks:hover{
+    transform: scale(0.97,0.97);
+    box-shadow: 0 0 50px 10px  rgb(231, 168, 168);
+}
+
+#boksinni{
+    font-size: 2vw;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(231, 168, 168);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+#aboksinni{
+    font-size: 2vw;
+    width: 300px;
+    height: 300px;
+    background-color:#fff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50px;
+    background-color: #fff;
+}

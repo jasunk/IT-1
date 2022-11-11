@@ -1,0 +1,51 @@
+body{
+    background:linear-gradient(90deg, rgb(240, 73, 73), rgb(255, 204, 94));
+    background-size:1910px 100px;
+}
+
+p{
+    color: black;
+    margin-left: 25px;
+    
+}
+
+.sitat{
+    background-color: grey;
+    width: fit-content;
+}
+
+.fremhev{
+    background-color: yellow;
+    color: gray;
+    width: fit-content;
+
+}
+
+#boks{
+    margin: auto;
+    width: 600px;
+    height: 600px;
+    transform: scale(1,1);
+    background-color:white ;
+    border: 2px solid grey;
+    text-align: center;
+    transition-duration: .6s;
+    
+}
+
+#boks:hover{
+    transform: scale(1.2,1.2);
+}
+
+#boks h1{
+    color: red;
+
+}
+
+#boks p:nth-child(2n){
+    background-color: rgb(170, 170, 210);
+    text-decoration: underline;
+    
+}
+
+/* Forskjell på block og inline er om innholdet havner på samme linje eller på egen linje i forhold til resten av innholdet. */

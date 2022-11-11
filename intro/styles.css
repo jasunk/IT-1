@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+
+
+:root{
+    --dark-color: #390413;
+    --theme-color:#BD6B73;
+    --theme-color-2:#cc8e95;
+    --bg-color:#E5E3F3;
+}
+
+
+body{
+    font-family: 'Arvo', serif;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+h1{
+    font-size: 40px;
+    text-decoration: underline rgba(210, 180, 140, 0);
+    
+    transition-duration: 0.4s;
+}
+
+h1:hover{
+    text-decoration: underline tan;
+    
+    
+}
+li{
+    font-size: 17px;;
+    padding: 10px;
+    transition-duration: 0.7s;
+    color: firebrick;
+
+}
+li:hover{
+    font-size: 19px;
+    
+}
+
+
+.split1 .split {
+    margin-top: 100px;
+    height: 400px;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    
+  }
+/* Control the left side */
+.split1 .left {
+    
+    left: 0;
+    background-color:var(--theme-color-2);
+    outline: 10px black;
+  }
+  
+  /* Control the right side */
+  .split1 .right {
+    right: 0;
+    background-color: var(--theme-color);
+  }
+
+  .split1 .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.split1 .centered img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    transition-duration: 0.3s;
+    transition-timing-function:cubic-bezier(0.08, 0.82, 0.3, 2.26);
+}
+
+.split1 .centered img:hover{
+    width: 350px ;
+    height: 35 0px;
+}
+
+.split2 .split {
+    margin-top: 500px;
+    height: 400px;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    
+  }
+/* Control the left side */
+.split2 .left {
+    
+    left: 0;
+    background-color:var(--theme-color);
+    
+  }
+  
+  /* Control the right side */
+  .split2 .right {
+    right: 0;
+    background-color: var(--theme-color-2);
+  }
+
+  .split2 .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.split2 .centered img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    transition-duration: 0.3s;
+    transition-timing-function:cubic-bezier(0.08, 0.82, 0.3, 2.26);
+}
+
+.split2 .centered img:hover{
+    width: 400px ;
+    height: 400px;
+}

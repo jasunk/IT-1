@@ -1,0 +1,181 @@
+:root{
+    --bg-color:#191414;
+    --bg2-color:#312727;
+    --theme-color:#1DB954;
+    --txt-color:white;
+}
+
+body{
+    background-color: var(--bg-color);
+    padding: 0;
+    margin: 0;
+
+    color: white;
+    box-sizing: border-box;
+
+}
+
+.header{
+    position: absolute;
+    top: 0px;
+    height: 12%;
+    width: 100%;
+    background: var(--theme-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageSelect{
+    position: absolute;
+    top: 15%;
+    width: 30%;
+    margin-left: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+    margin: 2%;
+    height: 4vh;
+    width: 100%;
+    background-color: var(--theme-color);
+    color: white;
+    transition-duration: 0.3s;
+    font-size:1.2vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a.button:hover{
+    opacity: 75%;
+    
+}
+
+.contentArea{
+    position: absolute;
+    top:25%;
+    background-color: var(--bg2-color);
+    width: 80%;
+    margin-left: 10%;
+    height: 150vh;
+}
+
+#current{
+    border: white solid 0.2vw;
+}
+
+#listeningList{
+    list-style:circle
+}
+
+
+
+.container {
+    width: 50vw;
+    margin: 2vw auto;
+}
+.form {
+    
+    border-radius: 6px;
+    padding: 2vw;
+    display: flex;
+    align-items: center;
+}
+
+.form p{
+    position: absolute;
+    top:6.5%;
+}
+
+#albumInp{
+    left: 28%;
+    
+}
+
+#bandInp{
+    
+    left: 54%;
+}
+
+input{
+    margin-left: 10%;
+    max-width: 30% !important;
+}
+
+.inputAlbum {
+    padding: 0.9vw;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    flex: 1;
+}
+.inputBand {
+    padding: 0.9vw;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    flex: 1;
+}
+.input:focus , .add:focus{
+    outline: none;
+}
+.add {
+    border: none;
+    background-color: var(--theme-color);
+    color: white;
+    padding: 1vw;
+    border-radius: 6px;
+    margin-left: 1vw;
+    cursor: pointer;
+}
+.tasks {
+    background-color: var(--bg2-color);
+    margin-top: 2vh;
+    border-radius: 6px;
+    padding: 2vw;
+}
+.tasks .task {
+    background-color: var(--bg2-color);
+    padding: 1vw;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+.tasks .task:not(:last-child) {
+    margin-bottom: 1.5vh;
+}
+.tasks .task:hover {
+    background-color: var(--bg-color);
+}
+.tasks .task.done {
+    opacity: 0.5;
+    position: relative;
+}
+.task.done::after {
+    position: absolute;
+    content: "";
+}
+.tasks .task span { 
+    font-weight: bold;
+    font-size: 1vw;
+    background-color: red;
+    color: white;
+    padding: 0.2vw 0.8vh;
+    border-radius: 4px;
+    cursor: pointer;
+}

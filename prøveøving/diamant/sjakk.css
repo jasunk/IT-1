@@ -1,0 +1,55 @@
+.flexbox{
+    text-align: start;
+    /* Setter opp en flexbox som setter bredden til 40 vw(viewPortWidth)
+    Dette gjør ting scaleble uavhengig av skjerm*/
+    max-width: 32vw;
+    height: 32vw;
+    display: flex;
+    margin-top: -20vh;
+
+    /* FlexWrap gjør at det startes på en ny linje når det ikke er plass til mer */
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 1.2vw white;
+    
+}
+
+
+/* Her markerer jeg ALLE DIVs sin er inni .flexbox */
+.flexbox > div{
+
+    /* Størelsen satt til 4vw. Siden jeg vil ha et 10*10 brett, 
+    er widt og height på divs her 1/10 av flexboxen sin width og height */
+    width: 4vw;
+    height: 4vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 4vw;
+   
+}
+
+
+
+
+/* Her bestemmer eg bare farger (wack) */
+.b{
+    background-color: rgb(44, 41, 41);
+}
+
+.w{
+    background-color: white;
+}
+
+.chessAlign{
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

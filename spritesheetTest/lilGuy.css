@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+@keyframes cycle{
+    0%{background: url("img/dam.png") 0 0;}
+    25%{background: url("img/dam.png") -1600px 0;}
+    50%{background: url("img/dam.png") -3200px 0;}
+    75%{background: url("img/dam.png") -4800px 0;}
+}
+
+#character{
+    background: url("img/seksten.png") 0 0;
+    width: 133.5px;
+	height: 199.75px;
+    animation: walkLeft 0.5s step-end infinite;
+    position: absolute;
+    transition-duration: 0.15s;
+    transform: scale(0.5,0.5);
+    
+}
+
+@keyframes walkUp{
+    0%{background: url("img/seksten.png") 0 0;}
+    25%{background: url("img/seksten.png") -133.5px 0;}
+    50%{background: url("img/seksten.png") -267px 0;}
+    75%{background: url("img/seksten.png") -400.5px 0;}
+}
+
+@keyframes walkRight{
+    0%{background: url("img/seksten.png") 0 199.75px;}
+    25%{background: url("img/seksten.png") -133.5px 199.75px;}
+    50%{background: url("img/seksten.png") -267px 199.75px;}
+    75%{background: url("img/seksten.png") -400.5px 199.75px;}
+}
+
+@keyframes walkLeft{
+    0%{background: url("img/seksten.png") 0 399.5px;}
+    25%{background: url("img/seksten.png") -133.5px 399.5px;}
+    50%{background: url("img/seksten.png") -267px 399.5px}
+    75%{background: url("img/seksten.png") -400.5px 399.5px}
+}
+@keyframes walkDown{
+    0%{background: url("img/seksten.png") 0 599.25px;}
+    25%{background: url("img/seksten.png") -133.5px 599.25px;}
+    50%{background: url("img/seksten.png") -267px 599.25px}
+    75%{background: url("img/seksten.png") -400.5px 599.25px}
+}

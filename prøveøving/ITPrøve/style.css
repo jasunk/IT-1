@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap');
+body{
+    /* Nullstiller for nøyaktighet */
+    margin: 0;
+    padding: 0;
+
+    /* Gjør body til grid */
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    grid-template-columns: 2fr repeat(2,1fr);
+    grid-template-areas: "t t t"
+                        " v m h";
+
+    
+    font-family: 'Exo 2', sans-serif;
+    
+    /* Variabler */
+    --bg-color:#EBEEE7;
+    --theme-color:#DBEBC0;
+    --button-color:#CABBA5;
+    --txt-color:#523249;
+
+    /* Tilpasning */
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+    font-size: 1.2vw;
+
+}
+
+div{
+    /* Lager tynn svart border rundt alt */
+    border: 1px black solid;
+    padding: 3%;
+}
+
+img{
+    /* Lar alle bilder være full størrelse */
+    border-radius: 1vw;
+    width: 100%;
+}
+
+button{
+    border-radius: 1vw;
+}
+
+.header{
+    /* Gir header en verdi i grid-area og tilpasser utseende */
+    grid-area:t;
+    background-color: var(--theme-color);
+    padding: 0;
+
+        
+}
+.header img{
+    /* Tilpasning av logoen som vises før tekst */
+    padding: 0 2%;
+    width: 2.4vw;
+}
+
+.buttonFlex{
+    /* Lar DIVen buttonFlex ligge over DIVen header, og posisjonerer den */
+    padding: 0;
+    width: 20%;
+    position: absolute;
+    right: 1vw;
+    top: 1.5vh;
+
+    /* gjør DIVen til flexbox for å posisjonere linkene*/
+    border: none;
+    display: flex;
+    flex-direction:row-reverse;
+    justify-content: space-between;
+
+    
+    
+}
+
+.buttonFlex a{
+    /* linkUtseende */
+    color: var(--txt-color);
+}
+
+
+
+
+.venstre{grid-area:v;}
+
+
+.midten{grid-area:m;}
+
+
+.høyre{grid-area:h;}
+
+#startsiden{
+    /* Tilpasser knappen "startSiden */
+    width: 100%;
+    height: 6vh;
+    background-color: var(--button-color);
+    color: var(--bg-color);
+}
+
+#darkMode{
+    /* Designer den runder Darkmode-knappen i venstre hjørne */
+    color: black;
+    padding: 0;
+    width: 5vw;
+    height: 5vw;
+    position:  fixed;
+    bottom: 1.5vh;
+    left: 2vw;
+    background-color: var(--button-color);
+
+    border-radius: 50%;
+
+    /* FlexBox for å sentrere ikonet i knappen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+#tilbakeKnapp{
+    /* Tilpasser Knappen tilbake til passord.html fra programvare.html */
+    background-color: var(--button-color);
+    color: var(--bg-color);
+    font-size: 3vw;
+    margin-left: 15vw;
+    margin-top: 25%;
+    width: 70vw;
+    height: 25%;
+}
+
+
+.material-symbols-outlined {
+    transform: scale(1.75,1.75);
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+@media (max-width: 700px) {
+    body{
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 4vh repeat(3,fit-content);
+        grid-template-columns: 1fr;
+        grid-template-areas: "t" "v" "m" "h";
+
+        font-size: 1.75wv;
+
+    
+    }
+    #darkMode{
+        width: 10vw;
+        height: 10vw;
+    }
+    .material-symbols-outlined {
+        transform: scale(0.75,0.75);
+        
+    }
+  }
+  
+
+
+  
+  
+  

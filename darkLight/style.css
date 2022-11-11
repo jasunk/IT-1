@@ -1,0 +1,19 @@
+:root{
+    --light-bg-color:beige;
+    --dark-bg-color:rgb(104, 84, 84);
+    --light-txt-color:black;
+    --dark-txt-color:#fff;
+
+}
+
+body{
+    text-align: center;
+    background: var(--light-bg-color);
+    color: var(--light-txt-color);
+    font-size: 1vw;
+    transition:0.5s ease;
+}
+
+.top{
+    position: fixed absolute;
+}

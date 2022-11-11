@@ -1,0 +1,29 @@
+
+:root{
+    --dark-color: #390413;
+    --theme-color:#BD6B73;
+    --bg-color:#E5E3F3;
+}
+
+body{
+    background-color: var(--bg-color);
+}
+
+p{
+    background-color: var(--theme-color);
+    color: var(--dark-color);
+}
+h1{
+    background-color: var(--theme-color);
+}
+
+.intro{
+    padding-top: 30px;
+    text-align: center;
+}
+
+.intro p{
+    max-width: 500px;
+    padding-left: 700px;
+    padding-right: 700px;
+}

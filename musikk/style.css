@@ -1,0 +1,47 @@
+:root{
+    --bg-color:#316572;
+    --theme-color:#99C29C;
+    --hover-color:#BFD9C1;
+    --dark-color:#1F2B33;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--dark-color);
+}
+
+
+.meny ul {
+    position: fixed;
+    top: 0;
+    
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--theme-color);
+  }
+  
+.meny h1{
+    float: left;
+    padding-left: 2%;
+}
+
+ .meny li {
+    float: right;
+  }
+  
+ .meny li a {
+    
+    display: block;
+    
+    text-align: center;
+    height: 30px;
+    padding: 20px 22px;
+    text-decoration: none;
+  }
+  
+.meny  li a:hover {
+    background-color:var(--hover-color);
+  }
