@@ -8,13 +8,13 @@ let speed = [0.01, 0]
 let score = 0
 
 let newAlive = [false,false,false,false,false,false,false,false,false,false,false,false,false,false]
-let newLeft = [500, -600, 200, 900, 300,1500, 300, 1100, 500, -430,200, -300, 1200, 1000]
+let newLeft = [Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1), Math.ceil(Math.random() * 999) * (Math.round(Math.random()) ? 1 : -1)]
 let newRef = [".enemy2",".enemy3", ".enemy4",".enemy5",".enemy6",".enemy7",".enemy8",".enemy9",".enemy10",".enemy11",".enemy12",".enemy13",".enemy14"]
 let newScale = [0.2,0.2,0.2,0.1,0.3,0.2,0.2,0.2,0.1,0.3,0.2,0.2,0.2,0.1]
 let newSpeed = [0.01,0.01,0.01,0.015,0.01,0.01,0.01,0.01,0.015,0.01,0.01,0.01,0.01,0.015]
 
 
-
+let canShoot=true
 let mouseAccel=1
 const vw = (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0))/2
 
@@ -24,17 +24,19 @@ for (let i = 0; i < ref.length; i++) {document.querySelector(ref[i]).style.margi
 document.addEventListener('keydown', function(event) {
 
     if(event.keyCode == 32) {
-        shoot(); spawn()
-        for (let i = 0; i < ref.length; i++) {
-            if (left[i]<100 && left[i]>-100){
+        shoot(); setTimeout(spawn,1000)
+        for (let i = 0; i < ref.length; i++ ) {
+            if (left[i]<100 && left[i]>-100 && canShoot){
+                canShoot=false
                 score++
                 
                 document.querySelector("#score").innerHTML = score
                 document.querySelector(ref[i]).classList.add("die"); kill(i);
             } 
         }
-        for (let i = 0; i < newRef.length; i++) {
-            if (newLeft[i]<100 && newLeft[i]>-100){
+        for (let i = 0; i < newRef.length; i++ ) {
+            if (newLeft[i]<100 && newLeft[i]>-100 && canShoot){
+                canShoot=false
                 score++
                 
                 document.querySelector("#score").innerHTML = score
@@ -105,10 +107,10 @@ function kill(i){
     
     alive[i]=false
 
-    for (let i = 0; i < ref.length; i++) {
+    /* for (let i = 0; i < ref.length; i++) {
         if (ref[i].classList=="die")
         {ref[i].classList.add("dead")}
-    }
+    } */
     
     /* delete alive[i];
     delete left[i];
@@ -134,6 +136,7 @@ function shoot(){
 
 function gunreset(){
     document.getElementById("gun").classList.remove("shoot")
+    canShoot=true
 }
 let nbrSpawned = 0
 function spawn(){
