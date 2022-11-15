@@ -1,0 +1,14 @@
+body{
+    background-color:#2e2e2e;
+    color: #dedede;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  #canv{
+    background: linear-gradient(
+      to bottom,
+      gray 0%,
+      black 40%,
+      black 60%,
+      #333 100%
+    );
+  }
