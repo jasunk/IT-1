@@ -1,9 +1,15 @@
-
+/* let txt = "Skjera? Denne siden er laget av Jaa-sunk"
+let utterance = new SpeechSynthesisUtterance(txt);
+window.speechSynthesis.speak(utterance)
+ */
 function oppgave1(){
     document.getElementById("oppgave1").style.backgroundColor="green"
 
+
     let binærtTall = prompt("Skriv et binært tall her:  ")
+
     alert(binærtTall + " representert som et heltall er: " + parseInt(binærtTall,2).toString())
+
 }
 
 function oppgave2(){
@@ -20,8 +26,15 @@ function oppgave3(){
     
     if (spørsmål.includes("rødt") || spørsmål.includes("rød")){
         alert("Rødt er fett")
+        let txt = "Rødt er fett"
+        let utterance = new SpeechSynthesisUtterance(txt);
+        window.speechSynthesis.speak(utterance)
+
     }else{
         alert("Fakker du? Koffor svarer du ikke rødt?")
+        let txt = "Fakker du? Hvorfor svarer du ikke rødt?"
+        let utterance = new SpeechSynthesisUtterance(txt);
+        window.speechSynthesis.speak(utterance)
     }
 }
 
