@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+
+    /* Width og height er inkludert border */
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    background-color: lightblue;
+    color: black;
+    font-weight: 800;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContent{
+    border-radius: 50px;
+    width: 60%;
+    height: 50vh;
+    background-color: white;
+    border: 0.5vw solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header{
+    border-radius: 50px;
+    height: 10vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 3vw;
+}
+
+h3{
+    margin-left: 2vw;
+}
+.info{
+    margin-top: 5vh;
+    align-items: center;
+    height: 30vh;
+    width: 100%;
+    font-size: 1.2vw;
+}
+
+.footer{
+    
+    overflow: hidden;
+    border-radius: 50px;
+    width: 100%;
+    height: 10vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 100%;
+    background-color: green;
+}
+
+.green{
+    color: green;
+}
