@@ -13,7 +13,8 @@ let styggeObjekter = [
     "overvektig klump ",
     "forbanna incel ",
     "illeluktende orangutang ",
-    "massiv turnoff "
+    "massiv turnoff ",
+    "fis "
 
 ]
 

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Nerko One', cursive;
+
+
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.terningBoks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50vh;
+    gap: 2vw;
+}
+.terning{
+    background-color: white;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition-duration: 0.4s;
+
+    box-shadow: 0 0 4vw 1vw gray;
+    
+}
+
+.farge{
+    padding: 3%;
+    width: 27%;
+    height: 27%;
+    transition-duration: 0.3s;
+}
+
+.black{
+    
+    background-color: black;
+    border-radius: 50%;
+    transform: scale(0.75,0.75);
+}
+
+.trilleKnapp{
+    background-color: white;
+    padding: 1vw;
+    border-radius: 50px;
+    cursor:pointer;
+    user-select: none;
+}
+
+.hold{
+    background-color: grey !important;
+    transform: scale(0.9,0.9);
+}
+
+#winText{
+    opacity: 0;
+    transition-duration: 0.3s;
+}
+.win{
+    opacity: 1 !important;
+}
+
+.seier{
+    opacity: 1;
+    transform: scale(1,1);
+    background-color: rgb(56, 183, 56) !important;
+}
