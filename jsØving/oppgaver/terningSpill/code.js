@@ -3,6 +3,10 @@ let t2Farger = document.getElementById('t2').children;
 let t3Farger = document.getElementById('t3').children;
 let forsøk = 0
 
+let t1 = document.querySelector("#t1")
+let t2 = document.querySelector("#t2")
+let t3 = document.querySelector("#t3")
+
 let vunnet = false
 let hold = [false,false,false]
 
@@ -63,7 +67,12 @@ function trill(){
 
     forsøk++
     document.querySelector("#Forsøk").innerHTML = "Antall forsøk: "+ forsøk
-    if (hold[0]==false){t1Nummer =  terningFjes[randomIntFromInterval(1,6)-1]}
+    if (hold[0]==false){
+      t1Nummer =  terningFjes[randomIntFromInterval(1,6)-1];
+      
+      
+
+    }
     if (hold[1]==false){t2Nummer =  terningFjes[randomIntFromInterval(1,6)-1]}
     if (hold[2]==false){t3Nummer =  terningFjes[randomIntFromInterval(1,6)-1]}
    

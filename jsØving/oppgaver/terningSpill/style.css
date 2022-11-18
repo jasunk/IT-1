@@ -45,6 +45,7 @@ body{
     width: 27%;
     height: 27%;
     transition-duration: 0.3s;
+    border-radius: 75%;
 }
 
 .black{
@@ -79,4 +80,21 @@ body{
     opacity: 1;
     transform: scale(1,1);
     background-color: rgb(56, 183, 56) !important;
+}
+
+
+.shake{
+    animation: shake 0.5s ease-in-out forwards;
+}
+
+@keyframes shake {
+    0%,100% {
+        transform: translate(0, 0);
+    }
+    10%,30%,50%,70%,90% {
+        transform: translate(10px);
+    }
+    20%,40%,60%,80% {
+        transform: translate(-10px);
+    }
 }
