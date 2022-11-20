@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(red,black);
+}
+
+#levelArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 29vw;
+    width: 30vw;
+    background: radial-gradient(pink,black);
+    flex-wrap: wrap;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    
+}
+
+#levelArea > div{
+    width: 3vw;
+    height: 3vw;
+    
+}
+
+.wall{
+    background-color: black;
+}
+
+.character{
+    position: absolute;
+    width: 1.5vw;
+    height: 1.5vw;
+    background-color: lightblue;
+    margin-left: 0.75vw;
+    margin-top: 0.75vw;
+    border-radius: 50%;
+}
+
+.spike{
+    background-color: red;
+    
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
