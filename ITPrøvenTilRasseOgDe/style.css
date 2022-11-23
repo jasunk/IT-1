@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Sono', sans-serif;
+    transition-duration: 0.5s;
+    user-select: none;
+}
+
+#buttons{
+    width: 35vw;
+    height: 17.5vw    ;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 2.5vw;
+}
+
+.button{
+    text-align: center;
+    width: 25%;
+    height: 50%;
+    background-color: black;
+    transform: scale(0.7,0.7);
+    border-radius: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.button:hover{
+    transform: scale(0.8,0.8);
+    background-color: rgb(68, 58, 58);
+    border: 5px solid white;
+}
+
+.wrong{
+    background-color: red !important;
+}
+
+.correct{
+    background-color: rgb(54, 175, 54) !important;
+}
+
+.nextButton{
+    cursor: pointer;
+    background-color: gray;
+    border-radius: 50px;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+}
+.nextButton:hover{
+    opacity: 0.8;
+}
+
+.score{
+    --order:1;
+    right: 10%;
+    top:calc(27% + var(--order)*10%);
+    position: absolute;
+    width: 15vw;
+    height: 3vw;
+}
