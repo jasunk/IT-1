@@ -5,7 +5,7 @@ let level =
     1,0,0,0,0,1,0,0,0,1,
     1,0,0,0,0,1,1,1,0,1,
     1,0,0,0,0,1,0,0,0,1,
-    1,0,2,0,0,0,0,0,0,1,
+    1,0,0,0,0,0,0,0,0,1,
     1,0,0,0,0,0,0,0,0,1,
     1,0,0,0,0,1,0,0,0,1,
     1,0,0,0,0,1,0,0,0,1,
@@ -106,3 +106,5 @@ document.addEventListener('keydown', function(event) {
 function resetMoved(){
     moved=false
 }
+
+let enemyDir
