@@ -12,13 +12,36 @@ body{
     height: 100vh;
     background: radial-gradient(red,black);
     font-family: 'Sono', sans-serif;
+    flex-direction: column;
+    
+    
 }
+.shake{animation: shake 0.6s ;}
+
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-3px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(3px, 0, 0);
+    }
+  }
 
 #levelArea{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 29vw;
+    height: 29.95vw;
     width: 30vw;
     background: radial-gradient(pink,black);
     flex-wrap: wrap;
@@ -67,4 +90,50 @@ body{
     align-items: center;
     color: white;
     
+}
+
+.winPoint{
+    background-color: green;
+    border-radius: 50%;
+    animation: hei 1s infinite linear;
+    
+}
+
+@keyframes hei {
+    0% {transform: scale(0.8,0.8);}
+    50% {transform: scale(0.7,0.7);}
+    100% {transform: scale(0.8,0.8);}
+}
+
+#displayText{
+    position: absolute;
+    top: 42%;
+    color: white;
+    width: 80%;
+    text-align: center;
+    font-size: 7vw;
+    left: 9.9%;
+    opacity: 0;
+    z-index: 3;
+    transition-duration: 0.5s;
+}
+
+.textShow{
+    opacity: 1 !important;
+}
+
+.breakable{
+    background-color: pink;
+    border: 0.3vw solid grey;
+}
+
+.counters{
+    font-size: 1.95vw;
+    text-align: center;
+}
+
+.ouch{
+    background-color: red;
+    transform: scale(0.8,0.8);
+    border-radius: 50%;
 }
