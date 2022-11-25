@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+:root{
+    --bg-color:#4ECDC4;
+    --theme-color1:#FF6B6B;
+    --theme-color2:#FFE66D;
+    --txt-color:#1A535C;
+    --txt-color-alt:#fff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Ubuntu', sans-serif;
+    height: 100vw;
+    width: 100vw;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+    
+    
+}
+.headerFlexbox{
+    z-index: 100;
+    position:fixed;
+    
+    width: 100vw;
+    height: 12vh;
+    background-color: var(--theme-color1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:var(--txt-color-alt);
+    font-size: 2.5vw;
+    box-shadow: 0 0 3vw 0.2vw black;
+    transition-duration: 0.4s;
+}
+
+.logoMain{
+    transition-duration: 0.4s;
+    z-index: 103;
+    top:2.5vh;
+    left: 1vw;
+    position: fixed;
+    font-size: 3.5vw !important;
+    color: var(--txt-color-alt) !important;
+}
+
+
+.material-symbols-outlined {
+    color: var(--txt-color);
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.content{
+    
+    height: 150vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 75%;
+    margin: auto;
+    transform: translate(0,20%);
+    gap: 2.5%;
+    
+}
+
+.section{
+    
+    z-index: -1;
+    width: 30%;
+    height: 30vh;
+    background: linear-gradient(var(--theme-color1),var(--bg-color));
+    margin: auto;
+    border-radius: 2vw;
+    transition-duration: 0.3s;
+}
+
+.section:hover{
+    transform: scale(1.1,1.1);
+}
+
+iframe{
+    opacity: 0.8;
+    border-radius: 2vw;
+    width: 100%;
+    height: auto;
+}
+
+.flexbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    
+}
+.sectionHeader{
+    margin-left: 1vw;
+    color: white !important;
+    font-size: 1.75vw;
+    font-weight: 700;
+    width: 100%;
+    height: 5vh;
+    
+}
+.sectionText{
+    margin-left: 2vw;
+    color: white !important;
+    font-size: 1.05vw;
+    
+}
+.section a{
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    z-index: 10;
+}
+
+h5{
+    position: absolute;
+    bottom: 0;
+    left: -12.5vw;
+    width: 100vw;
+    background-color: gray;
+    text-align: center;
+}

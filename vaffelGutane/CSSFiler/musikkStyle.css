@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poiret One', cursive;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.musicPlayerBase{
+    background-color: gray;
+    width: 23vw;
+    height: 30vw;
+
+    border: 0.5vw solid black;
+    
+
+}
+.albumCover {
+    width: 100%;
+    height: 75%;   
+}
+
+.albumCover img{
+    width: 100%;
+    height: auto;
+}
+
+
+.musicPlayerBase .controls{
+    margin-top:6%;
+    height: 22%;
+    width: 102%;
+    margin-left: -1%;
+    
+    background-color: black;
+}
+
+.musicPlayerBase .controls #duration{
+    height: 20%;
+    background-color: blueviolet;
+    width: 0%;
+    transition-duration: 0.95s;
+    border-radius: 15px;
+    
+    
+}
+
+.musicPlayerBase .controls .buttons{
+    height: 40%;
+    width: 98%;
+    margin-left: 1%;
+    margin-bottom: 5%;
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.musicPlayerBase .controls .name{
+    color: white;
+}
