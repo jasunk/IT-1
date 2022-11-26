@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow: hidden;
+    user-select: none;
+}
+
+#level{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#level > div{
+    background-color: gray;
+    
+    width: 2.5vw;
+    height: 2.5vw;
+    transition-duration:  1s;
+}
+
+#level > div:hover{
+    border: 0.1vw solid black;
+}
+
+.character{
+    margin-left: 0.25vw;
+    margin-top: 0.25vw;
+    transition-duration:0.2s;
+    
+    height: 2vw;
+    width: 2vw;
+    /* background-color: beige; */
+    
+}
+
+.wall{
+    background-color: black !important;
+}
+
+#visual{
+    position: absolute;
+    left: 0.5vw;
+    top: 0.5vw;
+    transition-duration:0.2s;
+    
+    height: 1.5vw;
+    width: 1.5vw;
+    background-color: lightblue;
+    z-index: 1000;
+}
+
+.ground > div{transition-duration: 2s; opacity: 0;}
+.attack{
+    
+    width: 2.5vw;
+    height: 2.5vw;
+    background-color: orangered;
+    animation: fire 0.5s linear;
+}
+
+@keyframes fire {
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
+}
