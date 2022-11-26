@@ -40,7 +40,11 @@ body{
 .wall{
     background-color: black !important;
 }
-
+.enemy{
+    background-color: red !important;
+    width: 2.5vw;
+    height: 2.5vw;
+}
 #visual{
     position: absolute;
     left: 0.5vw;
@@ -53,7 +57,7 @@ body{
     z-index: 1000;
 }
 
-.ground > div{transition-duration: 2s; opacity: 0;}
+
 .attack{
     
     width: 2.5vw;
@@ -67,3 +71,4 @@ body{
     50%{opacity: 1;}
     100%{opacity: 0;}
 }
+

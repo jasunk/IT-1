@@ -1,5 +1,5 @@
 let divsHoriz =window.innerWidth/ (window.innerWidth/100*2.5)
-let divnr= divsHoriz*25
+let divnr= divsHoriz*22
 let pTop = 0.5
 let pLeft = 0.5
 let canmove = true
@@ -59,17 +59,13 @@ window.addEventListener("keydown", function (event) {
   }, true);
   // the last option dispatches the event to the listener first,
   // then dispatches event to window
-/* window.addEventListener("click",clickHandler)
 
-function clickHandler(e) {
-    alert(mouseB)
-    var target = (e.target) ? e.target : e.srcElement;
-    target.classList.add("wall")
-} */
-var mouseB;
+
+
+
 window.addEventListener('click', (event) => {
     console.log(event.button)
-    mouseB=0
+
     var target = (event.target) ? event.target : event.srcElement;
     if (target.classList != "unclickable"){target.classList.add("wall"); target.classList.remove("ground")}
 
@@ -78,7 +74,6 @@ window.addEventListener('click', (event) => {
 
 window.addEventListener('contextmenu', (event) => {
     console.log(event.button)
-    mouseB=1
     var target = (event.target) ? event.target : event.srcElement;
     if (target.classList != "unclickable"){target.classList.remove("wall"); target.classList.add("ground")}
 })
@@ -150,4 +145,17 @@ function remove(){
   }
   
   whatRemove.length=0
+}
+
+
+
+/* if pos + width > player -> ned, else if pos > player -> høyre*/
+
+let enemyInitSpawnAmount = parseInt(Math.random()*10)
+alert(enemyInitSpawnAmount)
+for (let i = 0; i < enemyInitSpawnAmount; i++) {
+  let ERP = parseInt(Math.random()*divnr)
+  console.log(ERP)
+  document.querySelector("#level").childNodes[ERP].appendChild(document.createElement('div'))
+  document.querySelector("#level").childNodes[ERP].firstChild.classList.add("enemy")
 }
