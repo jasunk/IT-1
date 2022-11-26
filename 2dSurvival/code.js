@@ -1,14 +1,29 @@
 let divsHoriz =window.innerWidth/ (window.innerWidth/100*2.5)
 let divnr= divsHoriz*22
+let divs = (document.querySelector("#level").children)
+
+/* playerVisual */
 let pTop = 0.5
 let pLeft = 0.5
+let playerRef = document.getElementById("visual")
+
+/* Player general */
+let playerpos;
 let canmove = true
 let canAttack =true
 let level = []
 let speed = 50
-let playerRef = document.getElementById("visual")
 
 
+/* enemies */
+let enemyInitSpawnAmount = parseInt(Math.random()*10)
+let enemyPos = []
+
+/* attack */
+let whatRemove = []
+let attackPos= [1,-1,divsHoriz,-divsHoriz]
+
+/* Genererer level */
 for (let i = 0; i < divnr; i++) {
     document.querySelector("#level").appendChild(document.createElement('div'))
    if (i==1) {
@@ -23,17 +38,20 @@ for (let i = 0; i < divnr; i++) {
 }
 document.body.removeChild(document.body.childNodes[1])
 
+/* oppdaterer visuell posisjon */
 setInterval(update,50)
 function update(){
   playerRef.style.left = pLeft + "vw"
     playerRef.style.top = pTop + "vw"
 }
+
+/* Input */
 window.addEventListener("keydown", function (event) {
     if (event.defaultPrevented) {
       return; // Do nothing if the event was already processed
     }
     
-    
+  
     switch (event.key) {
         case "s":
         movement(40)
@@ -61,8 +79,6 @@ window.addEventListener("keydown", function (event) {
   // then dispatches event to window
 
 
-
-
 window.addEventListener('click', (event) => {
     console.log(event.button)
 
@@ -78,8 +94,10 @@ window.addEventListener('contextmenu', (event) => {
     if (target.classList != "unclickable"){target.classList.remove("wall"); target.classList.add("ground")}
 })
 
-let divs = document.querySelector("#level").children
 
+
+
+/* Behandler bevegelse */
 function movement(levelCheck){
   
   for (let i = 0; i < divs.length; i++) {        
@@ -91,6 +109,7 @@ function movement(levelCheck){
             var clone = original.cloneNode(true);
             (divs[(i+levelCheck)]).appendChild(clone);
             divs[i].removeChild(divs[i].firstChild)  
+            playerpos=divs[(i+levelCheck)]
             if (levelCheck==1){
               pLeft+=2.5
             }else if (levelCheck==-1){
@@ -109,8 +128,9 @@ function movement(levelCheck){
 function resetMove(){
   canmove=true
 }
-let whatRemove = []
-let attackPos= [1,-1,divsHoriz,-divsHoriz]
+
+
+/* angrep */
 function attack(){
   
   for (let i = 0; i < divs.length; i++) {     
@@ -137,6 +157,7 @@ function attack(){
   }canAttack=false
 }
 
+/* Fjerner ild */
 function remove(){
   canAttack=true
   for (let i = 0; i < whatRemove.length; i++) {
@@ -151,11 +172,15 @@ function remove(){
 
 /* if pos + width > player -> ned, else if pos > player -> høyre*/
 
-let enemyInitSpawnAmount = parseInt(Math.random()*10)
-alert(enemyInitSpawnAmount)
+
+console.log(enemyInitSpawnAmount)
 for (let i = 0; i < enemyInitSpawnAmount; i++) {
   let ERP = parseInt(Math.random()*divnr)
-  console.log(ERP)
+  
+  enemyPos.push( Array.from(
+  document.querySelector("#level").children
+).indexOf(document.querySelector("#level").childNodes[ERP]))
   document.querySelector("#level").childNodes[ERP].appendChild(document.createElement('div'))
   document.querySelector("#level").childNodes[ERP].firstChild.classList.add("enemy")
+  console.log(enemyPos)
 }
