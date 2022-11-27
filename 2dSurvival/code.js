@@ -16,7 +16,7 @@ let speed = 50
 
 
 /* enemies */
-let enemyInitSpawnAmount = parseInt(Math.random()*10)
+let enemyInitSpawnAmount = /* parseInt(Math.random()*10) */ 1
 let enemyPos = []
 
 /* attack */
@@ -42,7 +42,7 @@ document.body.removeChild(document.body.childNodes[1])
 setInterval(update,50)
 function update(){
   playerRef.style.left = pLeft + "vw"
-    playerRef.style.top = pTop + "vw"
+    playerRef.style.top = pTop +2.5 + "vw"
 }
 
 /* Input */
@@ -95,7 +95,7 @@ window.addEventListener('contextmenu', (event) => {
 })
 
 
-
+movement(0)
 
 /* Behandler bevegelse */
 function movement(levelCheck){
@@ -109,7 +109,7 @@ function movement(levelCheck){
             var clone = original.cloneNode(true);
             (divs[(i+levelCheck)]).appendChild(clone);
             divs[i].removeChild(divs[i].firstChild)  
-            playerpos=divs[(i+levelCheck)]
+            playerpos=parseInt(i+levelCheck)
             if (levelCheck==1){
               pLeft+=2.5
             }else if (levelCheck==-1){
@@ -172,15 +172,97 @@ function remove(){
 
 /* if pos + width > player -> ned, else if pos > player -> høyre*/
 
-
+let enemyRefs = []
+let ERPARRAY = []
 console.log(enemyInitSpawnAmount)
 for (let i = 0; i < enemyInitSpawnAmount; i++) {
-  let ERP = parseInt(Math.random()*divnr)
-  
+  var ERP = parseInt(Math.random()*divnr)
+  ERPARRAY.push(ERP)
   enemyPos.push( Array.from(
   document.querySelector("#level").children
 ).indexOf(document.querySelector("#level").childNodes[ERP]))
   document.querySelector("#level").childNodes[ERP].appendChild(document.createElement('div'))
   document.querySelector("#level").childNodes[ERP].firstChild.classList.add("enemy")
-  console.log(enemyPos)
+  enemyRefs.push(document.querySelector("#level").childNodes[ERP].firstChild)
+  console.log(enemyPos, enemyRefs)
+}
+setInterval(enemyMove,1000)
+let newRef = []
+  let newPos = []
+function enemyMove(){
+  
+  for (let i = 0; i < enemyPos.length; i++) {
+    console.log("hei")
+    if(enemyPos[i]<playerpos){
+      
+      if(enemyPos[i]+divsHoriz<playerpos){
+        var original = enemyRefs[i]
+        var clone = original.cloneNode(true);
+        (divs[(enemyPos[i]+divsHoriz)]).appendChild(clone);
+        enemyRefs[i].remove()
+        newPos.push( Array.from(
+          document.querySelector("#level").children
+        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]+divsHoriz]))
+      }else  {
+        var original = enemyRefs[i]
+        var clone = original.cloneNode(true);
+        (divs[(enemyPos[i]+1)]).appendChild(clone);
+        enemyRefs[i].remove()
+        newPos.push( Array.from(
+          document.querySelector("#level").children
+        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]]))
+      }
+    }
+    
+    if(enemyPos[i]>playerpos){
+      
+      if(enemyPos[i]-divsHoriz>playerpos ){
+        
+        var original = enemyRefs[i]
+        var clone = original.cloneNode(true);
+        (divs[(enemyPos[i]-divsHoriz)]).appendChild(clone);
+        enemyRefs[i].remove()
+        newPos.push( Array.from(
+          document.querySelector("#level").children
+        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]-divsHoriz]))
+      }else{
+        var original = enemyRefs[i]
+        var clone = original.cloneNode(true);
+        (divs[(enemyPos[i]-1)]).appendChild(clone);
+        enemyRefs[i].remove()
+        newPos.push( Array.from(
+          document.querySelector("#level").children
+        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]]))
+      }
+    }
+    newRef.push(clone)
+    
+    
+  
+  
+    
+  
+  
+    
+
+
+  } 
+  enemyPos.length=0
+  for (let i = 0; i < newPos.length; i++) {
+    enemyPos.push(newPos[i])
+    
+  }
+  newPos.length=0
+  enemyRefs.length=0
+  for (let i = 0; i < newRef.length; i++) {
+    enemyRefs.push(newRef[i])
+    
+    
+  }
+  newRef.length=0
+  
+  
+  console.log("lastPos", enemyPos, "newPos",newPos)
+  console.log("lastPos", enemyRefs, "newPos",newRef)
+  
 }
