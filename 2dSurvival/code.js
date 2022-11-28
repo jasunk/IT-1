@@ -16,7 +16,7 @@ let speed = 50
 
 
 /* enemies */
-let enemyInitSpawnAmount = /* parseInt(Math.random()*10) */ 1
+let enemyInitSpawnAmount = parseInt(Math.random()*10)+ 1
 let enemyPos = []
 
 /* attack */
@@ -83,7 +83,7 @@ window.addEventListener('click', (event) => {
     console.log(event.button)
 
     var target = (event.target) ? event.target : event.srcElement;
-    if (target.classList != "unclickable"){target.classList.add("wall"); target.classList.remove("ground")}
+    if (target.classList != "unclickable"){target.classList.toggle("wall"); target.classList.remove("ground")}
 
     
 })
@@ -186,23 +186,24 @@ for (let i = 0; i < enemyInitSpawnAmount; i++) {
   enemyRefs.push(document.querySelector("#level").childNodes[ERP].firstChild)
   console.log(enemyPos, enemyRefs)
 }
-setInterval(enemyMove,1000)
+setInterval(enemyMove,300)
 let newRef = []
   let newPos = []
 function enemyMove(){
   
   for (let i = 0; i < enemyPos.length; i++) {
-    console.log("hei")
+    
     if(enemyPos[i]<playerpos){
       
       if(enemyPos[i]+divsHoriz<playerpos){
+        console.log("hei")
         var original = enemyRefs[i]
         var clone = original.cloneNode(true);
         (divs[(enemyPos[i]+divsHoriz)]).appendChild(clone);
         enemyRefs[i].remove()
         newPos.push( Array.from(
           document.querySelector("#level").children
-        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]+divsHoriz]))
+        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]+divsHoriz-1]))
       }else  {
         var original = enemyRefs[i]
         var clone = original.cloneNode(true);
@@ -210,13 +211,13 @@ function enemyMove(){
         enemyRefs[i].remove()
         newPos.push( Array.from(
           document.querySelector("#level").children
-        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]]))
+        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]+2]))
       }
     }
     
     if(enemyPos[i]>playerpos){
-      
-      if(enemyPos[i]-divsHoriz>playerpos ){
+      console.log("l")
+      if(enemyPos[i]-divsHoriz>playerpos){
         
         var original = enemyRefs[i]
         var clone = original.cloneNode(true);
@@ -224,7 +225,7 @@ function enemyMove(){
         enemyRefs[i].remove()
         newPos.push( Array.from(
           document.querySelector("#level").children
-        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]-divsHoriz]))
+        ).indexOf(document.querySelector("#level").childNodes[enemyPos[(i)]-divsHoriz+1]))
       }else{
         var original = enemyRefs[i]
         var clone = original.cloneNode(true);
