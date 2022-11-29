@@ -21,6 +21,12 @@ body{
     height: 2.5vw;
     transition-duration:  1s;
 }
+.ground{
+   /*  background-image: url("gress.png");
+    background-size: cover;
+     */
+     background-color: rgb(65, 163, 65) !important;
+}
 
 #level > div:hover{
     border: 0.1vw solid black;
@@ -74,3 +80,10 @@ body{
     100%{opacity: 0;}
 }
 
+.tree{
+    background-image:url("tre.png") !important;
+    background-size: contain;
+    transform: scale(4,4);
+    width: 2.5vw;
+    height: 2.5vw;
+}

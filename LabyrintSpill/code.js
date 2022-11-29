@@ -86,6 +86,7 @@ let spawn= [11,18,81,18,34,18,12]
 let levels = [level1,level2,level3,level4,level5,level6]
 let divs = document.querySelector("#levelArea").children
 
+
 let lvlNumber = 1
 
 let level = levels[lvlNumber-1]
@@ -106,7 +107,8 @@ let levelRandom = []
 for (let i = 0; i < 100; i++) {
     levelRandom.push(parseInt(Math.random()*2))
 }
-/* Nah */
+console.table(levelRandom)
+
 
 
 

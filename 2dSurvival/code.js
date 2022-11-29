@@ -83,7 +83,7 @@ window.addEventListener('click', (event) => {
     console.log(event.button)
 
     var target = (event.target) ? event.target : event.srcElement;
-    if (target.classList != "unclickable"){target.classList.toggle("wall"); target.classList.remove("ground")}
+    if (target.classList != "unclickable"){target.classList.toggle("wall"); target.classList.toggle("ground")}
 
     
 })
@@ -186,7 +186,7 @@ for (let i = 0; i < enemyInitSpawnAmount; i++) {
   enemyRefs.push(document.querySelector("#level").childNodes[ERP].firstChild)
   console.log(enemyPos, enemyRefs)
 }
-setInterval(enemyMove,300)
+setInterval(enemyMove,1000)
 let newRef = []
   let newPos = []
 function enemyMove(){
@@ -265,5 +265,15 @@ function enemyMove(){
   
   console.log("lastPos", enemyPos, "newPos",newPos)
   console.log("lastPos", enemyRefs, "newPos",newRef)
+  
+}
+
+
+let treeInitSpawnAmount = parseInt(Math.random()*7)
+for (let i = 0; i < enemyInitSpawnAmount; i++) {
+  var treeRP = parseInt(Math.random()*divnr)
+  
+  document.querySelector("#level").childNodes[treeRP].appendChild(document.createElement('div'))
+  document.querySelector("#level").childNodes[treeRP].firstChild.classList.add("tree")
   
 }
