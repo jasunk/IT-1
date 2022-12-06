@@ -1,0 +1,25 @@
+.knapp{
+    background-color: antiquewhite;
+    width: 5vw;
+    height:1.2vw;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+body{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: pink;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.result{
+    width: 100vw;
+    padding-left: 97vw;
+}

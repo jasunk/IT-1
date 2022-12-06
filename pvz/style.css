@@ -161,19 +161,33 @@ body{
 
 .flowerP{
     position: absolute;
-    transform: scale(0.15,0.15);
+    transform: scale(0.14,0.14);
     --width:835px;
     --height:835px;
     --w-nr:0;
     --h-nr:0;
     
     
-    background: url("anims/bunnpris.png");
+  
     
-    background-size: contain;
+    
+   
     height: var(--height);
     width: var(--width);
     
+}
+.bunnpris{
+    background: url("anims/bunnpris.png");
+
+    background-size: contain;
+}
+.rema{
+    background: url("anims/rema.png");
+    background-size: contain;
+}
+.kiwi{
+    background: url("anims/kiwi.png");
+    background-size: contain;
 }
 
 .cashGet{
@@ -269,4 +283,29 @@ body{
     background-color: black;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
+}
+
+.button{
+    width: 12vw;
+    height: 5vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    
+
+}
+.button:hover{
+    transform: scale(1.1,1.1);
+}
+.clicked{
+    background-color: red !important;
+    transform: scale(0.9,0.9);
+    cursor: initial !important;
+}
+.clicked:hover{
+    transform: scale(0.9,0.9);
 }

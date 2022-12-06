@@ -1,0 +1,18 @@
+
+div{
+    width: 10vw;
+    height: 10vw;
+    background-color: red;
+    transition-duration: 0.3s;
+    padding:10px;
+}
+
+
+.active{
+    background-color: orange;
+}
+
+.svart{
+    background-color: black;
+    margin-left: 30vw;
+}

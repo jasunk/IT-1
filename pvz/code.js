@@ -27,8 +27,22 @@ document.querySelector(".playGrid").addEventListener('click', function(e) {
         let div =document.createElement( "div" )
         target.appendChild(div)
         div.classList.add(plants[plantSelected]+"P")
+
+
+        if (plants[plantSelected]=="flower"){
+            let butikkType = parseInt(Math.random()*3)
+            if (butikkType==1){
+                div.classList.add("bunnpris")
+            }else if (butikkType==2){
+                div.classList.add("kiwi")
+            }else{
+                div.classList.add("rema")
+            }
+            
+            
+        }
         if (plantSelected==0){shooter()}
-        if (plantSelected==1){bunnprisBoost+=50}
+        if (plantSelected==1){bunnprisBoost+=75}
         if (plantSelected==2){potet()}
        if (plantSelected==3){setTimeout(BOOM,1000)}
        
@@ -59,7 +73,7 @@ function spawnSun(){
     document.querySelector(".playGrid").children[sunNr+35].style.top = parseInt(Math.random()*70) + "%"
     sunNr++
     div.addEventListener("pointerenter",sunremove)
-    
+    setTimeout(autoC,400)
     div.style.left = Math.random()*50 + "%"
     setTimeout(spawnSun,moneySpawnRate)
 
@@ -195,5 +209,32 @@ function bulletMove() {
     console.log(i)
     }
 
+    
+}
+
+document.querySelector(".AUTOCOLLECT").addEventListener("click", autocollect)
+
+let autocollectorActive=false
+function autocollect(){
+    if (!autocollectorActive){
+        autocollectorActive=true
+        suns-=500
+        document.getElementById("suns").innerHTML="Cash: "+suns
+        document.querySelector(".AUTOCOLLECT").classList.add("clicked")
+        autoC()
+    }
+    
+}
+document.getElementById("suns").innerHTML="Cash: "+suns
+function autoC(){
+    if (autocollectorActive){
+        let allSuns=(document.querySelectorAll(".sun"))
+    for (let i = 0; i < allSuns.length; i++) {
+        allSuns[i].style.display="none"
+        
+    }
+    suns+=50
+        document.getElementById("suns").innerHTML="Cash: "+suns
+    }
     
 }
