@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listeninglist</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Listeninglist</h1>
+        <h5>Jasunk edition</h5>
+    </header>
+
+    <main>
+        <div onclick="toggleActive('anbefalt')" class="card" id="anbefalt" style="--kort:-1; z-index: 1;">
+            Anbefalt:
+        
+        </div>
+        <div onclick="toggleActive('liste')" class="card center" id="liste" style="--kort:0; z-index: 3;">
+            Listeninglist:
+
+            <div class="inputAreaToggle">
+                Add to list
+            </div>
+                <div class="inputFelt">
+                    
+                    <div class="bildeOmråde">
+                        <input type="file" placeholder="Cover" class="fileInput">
+                    </div>
+                <div class="artistAlbum">
+                    <input type="text" placeholder="Album" id="album">
+                    <input type="text" placeholder="Artist" id="artist">
+                </div>
+                <input type="number" placeholder="År" class="år" id="årstall">
+                <div class="addButton">Add</div>
+                </div>
+            
+
+                <div class="listElement">
+                    <div class="image"></div>
+                    <div class="albumName"></div>
+                    <div class="artistName"></div>
+                    <div class="årstall"></div>
+                </div>
+
+
+        </div>
+        <div onclick="toggleActive('ferdig')" class="card " id="ferdig" style="--kort:1; z-index: 1;">
+            Har hørt:
+        
+        </div>
+    </main>
+
+</body>
+</html>
