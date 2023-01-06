@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:radial-gradient(lightblue,gray);
+}
+
+.inputfield{
+    width: 50%;
+    height: 35vh;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.displayfield{
+    width: 50%;
+    height: 40vh;
+    background-color: black;
+}
+h1{
+    position: absolute;
+    top: 5vh;
+    width: 50vw;
+    height: 8vh;
+    background-color: gray;
+    border-bottom-left-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+}
+
+.button{
+    height: 3vh;
+    width: 4vw;
+    text-align: center;
+    background-color: burlywood;
+    cursor: pointer;
+    user-select: none;
+    transition-duration: 0.2s;
+    margin-left: 1vw;
+}
+.button:hover{
+    scale: 1.1;
+    
+}
+.hei{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#personersInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
