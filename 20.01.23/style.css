@@ -1,0 +1,17 @@
+body{
+    min-height: 100vh;
+    background-color: gray;
+    user-select: none;
+}
+
+div{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    animation: fall 0.9s ease-out;
+}
+
+@keyframes fall {
+    from{translate: 0% 0vh}
+    to{translate: 0% 100vh;}
+}
