@@ -27,6 +27,7 @@ function search(){
     //bytte ut denne metoden? evt funksjon?
     document.querySelector("#loading").style.opacity=1
     
+    
     søk = (document.getElementById("inputArtist").value)
     
     fetch('https://theaudiodb.p.rapidapi.com/searchalbum.php?s='+søk.toString(), options)
@@ -61,7 +62,7 @@ function spawnOptions(response){
 
     //mækker elementer vettu
     for(i=0;i<response.album.length;i++){
-        console.log(response)
+        //console.log(response)
         let albumDisplay = document.createElement("div")
         let albumText = document.createElement("div")
         let albumImage = document.createElement("img")
@@ -93,7 +94,7 @@ function spawnOptions(response){
             added.innerHTML = "added to list"
             
             let albumData = new Object()
-            console.log(spawnedElements)
+            //console.log(spawnedElements)
             //getTracks(response.album[0].idAlbum)
             albumData.cover = response.album[parseInt(index)-spawnedElements].strAlbumThumb
             albumData.name = response.album[parseInt(index)-spawnedElements].strAlbum
@@ -101,7 +102,7 @@ function spawnOptions(response){
             albumData.artist = søk
             if (albumData != undefined){
                 albumsInList.push(albumData)
-                console.log(albumsInList)
+                //console.log(albumsInList)
             }
             
             
@@ -164,11 +165,12 @@ function makeList(){
     }
     //holder styr på hvor mange elementer som er slettes, 
     //brukes i slettefunsksjonen for å få riktig index
-    let deletedElements=0
+    
     
     //her mækkes displays for albumene 
     for(i=0;i<albumsInList.length;i++){
         if(albumsInList[i].name!=undefined){
+            let deletedElements=0
             let albumDisplay = document.createElement("div")
             let albumText = document.createElement("div")
             let albumImage = document.createElement("img")
@@ -187,9 +189,17 @@ function makeList(){
 
             //sletter elementer som blir trykket på
             albumDisplay.addEventListener("click",function(){
+              
+                albumsInList.pop(this.id)
+                this.parentElement.removeChild(this.parentElement.children[parseInt(this.id)])
+                elementsInResults=listeningList.children
+
+                for (let i = 0; i < elementsInResults.length; i++) {
+                    elementsInResults[i].setAttribute("id",i)
+                    
+                }
                 
-                this.parentElement.removeChild(this.parentElement.children[parseInt(this.id)-deletedElements])
-                deletedElements++
+                
             })
         }
     }
@@ -208,21 +218,21 @@ function makeList(){
 //TODO:
 /* 
 - autocomplete?
-- localstorage
+- (localstorage) FIREBASE
+- SQL
 - huske hva som er lagret allered (localstorage?)
 - vise låter?
 - kanskje slippe å fetche hver gang (kanskje umulig)
 - Fonter som er scalable
 - Bedre knapper?
-- Enter for søk
-- Brukere? (trolig ikke as, localstorage får holde)
+- Enter-knapp for søk
  !!! FLERE ARTISTER FUNKER IKKE, MILDT KRISE !!! (cannot read undefined elns) (er muligens fikset?)
  */
 
 
 
 
- function getTracks(albumId){
+/*  function getTracks(albumId){
 
 
     fetch('https://theaudiodb.p.rapidapi.com/track.php?m='+albumId.toString(), options)
@@ -236,4 +246,4 @@ function makeList(){
 function spawnSongList(response){
     console.log(response)
     console.log("^^^")
- }
+ } */
