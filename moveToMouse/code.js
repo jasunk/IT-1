@@ -1,13 +1,7 @@
 let mouse_x;
 let mouse_y;
 
-setInterval(update,10)
 
-function update()
-{
-    document.querySelector("div").style.marginLeft =mouse_x+"px"
-    document.querySelector("div").style.marginTop =mouse_y+"px"
-}
 window.addEventListener("mousemove", visPosisjon);
 window.addEventListener("click", clicked)
 
@@ -17,6 +11,8 @@ function visPosisjon(e) {
   mouse_x = e.clientX -10 ;
   mouse_y = e.clientY -10;
   console.log(mouse_x,mouse_y)
+  document.querySelector("div").style.left =mouse_x+"px"
+    document.querySelector("div").style.top =mouse_y+"px"
 }
 function clicked(){
     document.querySelector("div").classList.toggle("click")

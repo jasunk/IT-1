@@ -15,7 +15,8 @@ div{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    transition-duration: 0.15s;
+    transition-duration: 0.05s;
+    position: absolute;
     
 }
 
