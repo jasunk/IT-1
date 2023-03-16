@@ -22,11 +22,16 @@ body{
 
 .albumDisplay{
     
-    width: 15vw !important;
+    width: 15vw ;
+    min-width: 120px;
     height: auto !important;
     transition-duration: .3s;
+    
 
  
+}
+.albumText{
+    font-size: 2vw;
 }
 
 .albumDisplay:hover:not(:has(>.added)){
@@ -34,6 +39,26 @@ body{
     cursor: pointer;
     
     
+}
+
+@media screen and (max-width: 700px) {
+    .albumDisplay{
+        width:50vw !important;
+        height: auto;
+    }
+    .albumDisplay >img{
+        width: 50vw !important;
+        height: 50vw !important;
+    }
+    #home{
+        flex-direction: column;
+    }
+    .button{
+        width: 35vw !important;
+        height: 15vw !important;
+        font-size: 5vw !important;
+        padding: 10vw;
+    }
 }
 
 .albumDisplay:hover >img{
@@ -220,4 +245,41 @@ body{
 @keyframes spin{
     from{ rotate: 0deg;}
     to{ rotate: 360deg;}
+}
+
+
+#userCreation{
+    width: 15%;
+    height: 5vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 100;
+}
+.logInBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#approveName{
+    padding: 1vw;
+    background-color: black;
+    border-radius: 15px;
+    transition-duration: .3s;
+    scale: .8;
+}
+#approveName:hover{
+    cursor: pointer;
+    scale: 1;
+}
+
+
+.fields{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

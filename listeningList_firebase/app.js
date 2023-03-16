@@ -101,7 +101,8 @@ function spawnOptions(response){
             albumData.artist = søk
             if (albumData != undefined){
                 albumsInList.push(albumData)
-                //console.log(albumsInList)
+                addToCollection(albumData)
+                getUsersAlbums()
             }
             
             
@@ -254,26 +255,129 @@ function spawnSongList(response){
 
 
  //!!! FIREBASE
-
- 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDdMPY780dlSmWk6o-53ACa7AYP128SAxE",
-  authDomain: "listeninglist.firebaseapp.com",
-  projectId: "listeninglist",
-  storageBucket: "listeninglist.appspot.com",
-  messagingSenderId: "838577196012",
-  appId: "1:838577196012:web:ca0c1603b55f0e49510ec9",
-  measurementId: "G-3D98BEB86N"
-};
-
+ const firebaseConfig = {
+    apiKey: "AIzaSyDdMPY780dlSmWk6o-53ACa7AYP128SAxE",
+    authDomain: "listeninglist.firebaseapp.com",
+    projectId: "listeninglist",
+    storageBucket: "listeninglist.appspot.com",
+    messagingSenderId: "838577196012",
+    appId: "1:838577196012:web:ca0c1603b55f0e49510ec9",
+    measurementId: "G-3D98BEB86N"
+  };
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+//const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+// Lager en referanse til databasen
+let db = firebase.firestore();
+
+let aktiveDocs = []
+
+function getFromBase(){
+db.collection("listeningList").get().then((snapshot) => {
+    // Henter ut dokumentene
+    let dokumenter = snapshot.docs;
+    aktiveDocs.length = 0
+    for (let i = 0; i < dokumenter.length; i++) {
+        aktiveDocs.push(dokumenter[i].data().username)
+        
+    }
+
+    // Skriver dokumentene til konsollen
+    console.log(dokumenter);
+    console.log(dokumenter[0].data())
+   
+   
+});}
+getFromBase()
+
+let username = ""
+let savedUsers = []
+
+function getUsernames(){
+db.collection("usernames").get().then((snapshot) => {
+    // Henter ut dokumentene
+    let dokumenter = snapshot.docs;
+    savedUsers.length = 0
+    for (let i = 0; i < dokumenter.length; i++) {
+        savedUsers.push(dokumenter[i].data())
+        
+    }
+
+    // Skriver dokumentene til konsollen
+    console.log(dokumenter);
+    
+    createUser()
+   
+   
+});}
+getUsernames()
+function createUser(){
+    console.log(savedUsers)
+    if(document.getElementById("username").value==""){
+        return
+    }
+    
+    let canAdd = true
+
+
+    
+
+    for (let i = 0; i < savedUsers.length; i++) {
+        if (savedUsers[i].username == document.getElementById("username").value && savedUsers[i].password == document.getElementById("password").value){
+        alert("Du er nå logget inn som "+savedUsers[i].username)
+        getUsersAlbums()
+        canAdd=false
+        username = document.getElementById("username").value
+        return
+        }else if(savedUsers[i].username == document.getElementById("username").value){
+            alert("dette brukernavnet er i bruk")
+            canAdd=false
+            return
+        }else{
+            alert("Ny bruker med navn " + document.getElementById("username").value + " registrert" )
+            getUsersAlbums()
+        }
+    }
+    if (canAdd){
+    db.collection("usernames").add({
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value
+    });
+    username = document.getElementById("username").value
+    
+    }
+}
+
+
+function addToCollection(Data){
+    db.collection("listeningList").add({
+        albumInfo:Data,
+        username:username
+    });
+}
+
+let usersAlbums = []
+
+
+function getUsersAlbums(){
+    db.collection("listeningList").get().then((snapshot) => {
+        // Henter ut dokumentene
+        let dokumenter = snapshot.docs;
+        
+        for (let i = 0; i < dokumenter.length; i++) {
+            if (dokumenter[i].data().username == username){
+                usersAlbums.push(dokumenter[i].data())
+                console.log(dokumenter[i].data().albumInfo.name)
+            }
+            
+        }
+        
+    
+        // Skriver dokumentene til konsollen
+        console.log(dokumenter);
+        
+        
+       
+       
+    });
+}

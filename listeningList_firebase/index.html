@@ -7,12 +7,29 @@
     <title>Jasunks listeningList</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <link rel="shortcut icon" href="loading.png" type="image/x-icon">
 </head>
 <body>
     
     <img src="stockVinyl.png" id="loading" alt="">
     <div class="header">Jasunks listeningList</div>
+
+    <div id="userCreation">
+        <div class="logInBox">
+            <div class="fields">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="**********">
+            </div>
+            <div id="approveName" onclick="getUsernames()">Submit</div>
+        </div>
+    </div>
+
+    <div id="loggedInView">
+        <div id="username"></div>
+    </div>
+
     <div id="home">
         <div class="button" onclick="addAlbums()">Add <br> album(s)</div>
         <div class="button" onclick="showList()">Show <br> listeningList</div>
